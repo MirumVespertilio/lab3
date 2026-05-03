@@ -124,6 +124,28 @@ class MarriageAnalyzer(BaseAnalyzer):
             "ylabel": "Количество (тыс.)"
         }
     
+    def get_age_chart_data(self) -> Dict[str, Any]:
+        """
+        Получение данных для графика возрастов.
+        
+        Returns:
+            Словарь с данными для matplotlib
+        """
+        if not self._years:
+            self.analyze()
+        
+        return {
+            "years": self._years,
+            "values": {
+                "Возраст брака (мужчины)": self._marriage_age_male,
+                "Возраст брака (женщины)": self._marriage_age_female,
+                "Возраст развода (мужчины)": self._divorce_age_male,
+                "Возраст развода (женщины)": self._divorce_age_female
+            },
+            "title": "Средний возраст вступления в брак и развода",
+            "ylabel": "Возраст (лет)"
+        }
+    
     def get_variant_info(self) -> str:
         """Информация о варианте задания."""
         return (
