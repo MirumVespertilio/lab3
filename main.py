@@ -157,8 +157,10 @@ class StatisticsApp(ctk.CTk):
         )
         self.lbl_status.pack(side="left", padx=10, pady=5)
         
+        # Canvas для графиков
         self.canvas: Optional[FigureCanvasTkAgg] = None
         self.current_figure: Optional[Figure] = None
+        self.toolbar_frame: Optional[ctk.CTkFrame] = None  # Для удаления панели инструментов
     
     def _open_file(self) -> None:
         """Открытие файла с данными."""
@@ -190,11 +192,15 @@ class StatisticsApp(ctk.CTk):
                     messagebox.showerror("Ошибка", "Неизвестный формат данных")
                     return
                 
-                # Проверка на None перед использованием
                 if self.current_analyzer is not None:
                     if self.current_analyzer.load_data(file_path):
                         self.btn_analyze.configure(state="normal")
+                        self.btn_chart.configure(state="normal")
+                        self.btn_forecast.configure(state="normal")
                         self._update_status(f"Загружено записей: {len(self.current_analyzer.data)}")
+                        
+                        # Показываем таблицу сразу после загрузки
+                        self._display_table()
                     else:
                         messagebox.showerror("Ошибка", "Не удалось загрузить данные")
                     
@@ -213,10 +219,7 @@ class StatisticsApp(ctk.CTk):
             results = self.current_analyzer.analyze()
             self._display_table()
             
-            self.btn_chart.configure(state="normal")
-            self.btn_forecast.configure(state="normal")
             self.btn_export.configure(state="normal")
-            
             self._show_analysis_results(results)
             self._update_status("Анализ завершён")
             
@@ -231,6 +234,10 @@ class StatisticsApp(ctk.CTk):
             widget.destroy()
         
         if self.current_analyzer is None:
+            return
+        
+        # Сначала выполняем анализ для получения данных
+        if not self.current_analyzer.data:
             return
         
         table_data = self.current_analyzer.get_table_data()
@@ -324,8 +331,15 @@ class StatisticsApp(ctk.CTk):
     
     def _draw_chart(self, chart_data: dict, show_forecast: bool = False, forecast_periods: int = 3) -> None:
         """Отрисовка графика."""
+        # Удаляем предыдущий canvas
         if self.canvas:
             self.canvas.get_tk_widget().destroy()
+            self.canvas = None
+        
+        if self.toolbar_frame:
+            self.toolbar_frame.destroy()
+            self.toolbar_frame = None
+        
         if self.current_figure:
             plt.close(self.current_figure)
         
@@ -366,8 +380,7 @@ class StatisticsApp(ctk.CTk):
                                 label=f'{label} (прогноз)',
                                 alpha=0.7, linewidth=2)
                         
-                        ax.axvspan(years[-1] + 0.5, forecast_years[-1] + 0.5, 
-                                   alpha=0.1, color='yellow')
+                        ax.axvspan(years[-1] + 0.5, forecast_years[-1] + 0.5, alpha=0.1, color='yellow')
         
         ax.set_title(title, fontsize=14, fontweight='bold')
         ax.set_xlabel('Год', fontsize=12)
@@ -379,10 +392,11 @@ class StatisticsApp(ctk.CTk):
         self.canvas.draw()
         self.canvas.get_tk_widget().pack(fill="both", expand=True)
         
-        toolbar_frame = ctk.CTkFrame(self.center_frame)
-        toolbar_frame.pack(fill="x")
+        # ИСПРАВЛЕНИЕ: Сохраняем ссылку на toolbar_frame
+        self.toolbar_frame = ctk.CTkFrame(self.center_frame)
+        self.toolbar_frame.pack(fill="x")
         
-        toolbar = NavigationToolbar2Tk(self.canvas, toolbar_frame)
+        toolbar = NavigationToolbar2Tk(self.canvas, self.toolbar_frame)
         toolbar.update()
     
     def _export_chart(self) -> None:
