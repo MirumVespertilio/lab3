@@ -1,0 +1,137 @@
+[
+    {
+        "year": 2010,
+        "marriages": 1215066,
+        "divorces": 639321,
+        "avg_marriage_age_male": 28.8,
+        "avg_marriage_age_female": 26.5,
+        "avg_divorce_age_male": 33.2,
+        "avg_divorce_age_female": 30.8
+    },
+    {
+        "year": 2011,
+        "marriages": 1316011,
+        "divorces": 669376,
+        "avg_marriage_age_male": 29.0,
+        "avg_marriage_age_female": 26.7,
+        "avg_divorce_age_male": 33.5,
+        "avg_divorce_age_female": 31.0
+    },
+    {
+        "year": 2012,
+        "marriages": 1213598,
+        "divorces": 644101,
+        "avg_marriage_age_male": 29.2,
+        "avg_marriage_age_female": 26.9,
+        "avg_divorce_age_male": 33.7,
+        "avg_divorce_age_female": 31.2
+    },
+    {
+        "year": 2013,
+        "marriages": 1225501,
+        "divorces": 667971,
+        "avg_marriage_age_male": 29.4,
+        "avg_marriage_age_female": 27.1,
+        "avg_divorce_age_male": 34.0,
+        "avg_divorce_age_female": 31.5
+    },
+    {
+        "year": 2014,
+        "marriages": 1225985,
+        "divorces": 693730,
+        "avg_marriage_age_male": 29.6,
+        "avg_marriage_age_female": 27.3,
+        "avg_divorce_age_male": 34.2,
+        "avg_divorce_age_female": 31.7
+    },
+    {
+        "year": 2015,
+        "marriages": 1161068,
+        "divorces": 611646,
+        "avg_marriage_age_male": 29.8,
+        "avg_marriage_age_female": 27.5,
+        "avg_divorce_age_male": 34.5,
+        "avg_divorce_age_female": 32.0
+    },
+    {
+        "year": 2016,
+        "marriages": 985834,
+        "divorces": 608277,
+        "avg_marriage_age_male": 30.1,
+        "avg_marriage_age_female": 27.8,
+        "avg_divorce_age_male": 34.8,
+        "avg_divorce_age_female": 32.3
+    },
+    {
+        "year": 2017,
+        "marriages": 1049725,
+        "divorces": 611436,
+        "avg_marriage_age_male": 30.4,
+        "avg_marriage_age_female": 28.1,
+        "avg_divorce_age_male": 35.1,
+        "avg_divorce_age_female": 32.6
+    },
+    {
+        "year": 2018,
+        "marriages": 867039,
+        "divorces": 584401,
+        "avg_marriage_age_male": 30.7,
+        "avg_marriage_age_female": 28.4,
+        "avg_divorce_age_male": 35.4,
+        "avg_divorce_age_female": 32.9
+    },
+    {
+        "year": 2019,
+        "marriages": 950167,
+        "divorces": 620814,
+        "avg_marriage_age_male": 31.0,
+        "avg_marriage_age_female": 28.7,
+        "avg_divorce_age_male": 35.7,
+        "avg_divorce_age_female": 33.2
+    },
+    {
+        "year": 2020,
+        "marriages": 773324,
+        "divorces": 564704,
+        "avg_marriage_age_male": 31.3,
+        "avg_marriage_age_female": 29.0,
+        "avg_divorce_age_male": 36.0,
+        "avg_divorce_age_female": 33.5
+    },
+    {
+        "year": 2021,
+        "marriages": 896437,
+        "divorces": 644209,
+        "avg_marriage_age_male": 31.7,
+        "avg_marriage_age_female": 29.4,
+        "avg_divorce_age_male": 36.3,
+        "avg_divorce_age_female": 33.8
+    },
+    {
+        "year": 2022,
+        "marriages": 956098,
+        "divorces": 682850,
+        "avg_marriage_age_male": 32.1,
+        "avg_marriage_age_female": 29.8,
+        "avg_divorce_age_male": 36.6,
+        "avg_divorce_age_female": 34.1
+    },
+    {
+        "year": 2023,
+        "marriages": 945000,
+        "divorces": 683796,
+        "avg_marriage_age_male": 32.5,
+        "avg_marriage_age_female": 30.2,
+        "avg_divorce_age_male": 36.9,
+        "avg_divorce_age_female": 34.4
+    },
+    {
+        "year": 2024,
+        "marriages": 880000,
+        "divorces": 644500,
+        "avg_marriage_age_male": 32.8,
+        "avg_marriage_age_female": 30.5,
+        "avg_divorce_age_male": 37.2,
+        "avg_divorce_age_female": 34.7
+    }
+]
